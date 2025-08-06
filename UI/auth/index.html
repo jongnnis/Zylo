@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=340, initial-scale=1.0, user-scalable=no" />
+  <title>Zylo 로그인</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <div class="mobile-container">
+    <header class="login-header"></header>
+    <main class="login-content">
+      <div class="welcome-title">Welcome to Zylo!</div>
+      <div class="welcome-desc">Your very own assistant to<br>improve your fluency</div>
+      <div class="login-actions">
+        <button class="login-btn login-btn-main">Log in</button>
+        <button class="login-btn login-btn-sub">Sign up</button>
+      </div>
+    </main>
+    <div class="home-indicator-bar"></div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelector('.login-btn-main').addEventListener('click', function() {
+        window.location.href = 'login.html';
+      });
+      document.querySelector('.login-btn-sub').addEventListener('click', function() {
+        window.location.href = 'signup.html';
+      });
+    });
+  </script>
+</body>
+</html>

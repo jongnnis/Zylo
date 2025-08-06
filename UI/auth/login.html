@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=340, initial-scale=1.0, user-scalable=no" />
+  <title>Zylo 로그인</title>
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+  <div class="mobile-container">
+    <main class="login-content">
+      <div class="welcome-title">Welcome to Zylo!</div>
+      <form class="login-form">
+        <label for="user-id" class="login-label">Enter your ID</label>
+        <input type="text" id="user-id" class="login-input" placeholder="ID" autocomplete="username" />
+        <button type="submit" class="login-btn-main">Log In</button>
+      </form>
+    </main>
+    <div class="home-indicator-bar"></div>
+  </div>
+  <script>
+    document.querySelector('.login-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const userId = document.getElementById('user-id').value.trim();
+      if (!userId) {
+        alert('id를 입력하세요');
+        return;
+      }
+      try {
+        const response = await fetch('http://localhost:8000/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ userid: userId })
+        });
+        if (response.ok) {
+          const data = await response.json();
+          localStorage.setItem('user_info', JSON.stringify(data.user));
+          window.location.href = '../main.html';
+        } else {
+          alert('존재하지 않는 사용자입니다.');
+        }
+      } catch (error) {
+        alert('서버 연결 오류!');
+      }
+    });
+  </script>
+</body>
+</html>

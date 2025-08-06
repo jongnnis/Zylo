@@ -1,0 +1,9 @@
+.venv
+.env
+.DS_Store
+.cursor
+requirements.txt
+practice.ipynb
+cache
+CLAUDE.md
+settings.json

@@ -1,0 +1,312 @@
+/* call.css */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e5e5e5;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.mobile-container {
+  width: 340px;
+  height: 600px;
+  background-color: #fff;
+  border-radius: 32px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Header는 비워둠 (user badge 없음) */
+.call-header {
+  height: 40px;
+}
+
+/* Main Content */
+.call-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding-top: 40px;
+}
+
+.contact-info {
+  padding-top: 30px;
+  text-align: center;
+  position: relative;
+}
+
+.call-timer-corner {
+  position: absolute;
+  top: 18px;   /* 필요에 따라 조정 */
+  left: 18px;  /* 필요에 따라 조정 */
+  font-size: 1.2em;
+  font-weight: bold;
+  background: rgba(255,255,255,0.8);
+  padding: 4px 12px;
+  border-radius: 16px;
+  z-index: 10;
+}
+
+.name {
+  font-size: 30px;
+  font-weight: 700;
+  color: #1c1c1e;
+  margin: 0;
+}
+
+.study-mode-popup {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+}
+.study-mode-popup-content {
+  background: #fff;
+  border-radius: 18px;
+  padding: 36px 28px 22px 28px;
+  min-width: 240px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 18px;
+}
+.study-mode-btn {
+  font-size: 19px;
+  font-weight: 700;
+  padding: 18px 0;
+  border-radius: 14px;
+  border: none;
+  background: #4b6cff;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 8px;
+  transition: background 0.15s;
+}
+.study-mode-btn:active {
+  background: #3a54b4;
+}
+.study-mode-end-btn {
+  font-size: 15px;
+  padding: 10px 0;
+  border-radius: 10px;
+  border: none;
+  background: #f0f0f0;
+  color: #e74c3c;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* 메시지 영역을 더 위로 */
+.call-message.call-message-up {
+  position: absolute;
+  top: 160px;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 24px;
+  padding-right: 24px;
+  max-height: 280px; /* 필요에 따라 조정 */
+  overflow-y: auto;
+}
+
+.call-message-main {
+  font-size: 16px;
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 8px;
+}
+
+.agent-en {
+  color: #222;
+  font-size: 1em;
+  margin: 0 0 2px 0;
+}
+.agent-ko {
+  color: #878787;
+  font-size: 0.8em;
+  margin: 0 0 10px 0;
+}
+
+.call-message-sub {
+  font-size: 14px;
+  color: #b0b0b8;
+  font-weight: 400;
+}
+
+/* 하단 컨트롤 버튼 */
+.call-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  padding-bottom: 38px;
+}
+
+.call-control-btn {
+  background: #f4f4f8;
+  border: none;
+  border-radius: 50%;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.call-control-btn:active { filter: brightness(0.9); }
+
+/* .call-control-btn:active {
+  background: #e0e0e6;
+} */
+
+.call-control-btn svg {
+  display: block;
+}
+
+/* 통화 종료 버튼 강조 */
+.end-btn {
+  background: #ffeaea;
+}
+.end-btn:active {
+  background: #ffd6d6;
+}
+
+/* Sub. 아이콘 버튼 */
+.sub-btn {
+  background: #e7eaff;
+}
+.sub-btn:active {
+  background: #cfd8fc;
+}
+.sub-icon {
+  font-size: 16px;
+  font-weight: 600;
+  color: #4b6cff;
+  letter-spacing: 0.5px;
+  font-family: inherit;
+}
+
+/* 마이크 버튼 상태별 스타일 */
+.mic-btn {
+  /* 기본은 투명 배경, 아래 상태 클래스에서 덮어씁니다 */
+  background: transparent;
+}
+.mic-btn svg {
+  width: 28px;
+  height: 28px;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* 1) Idle 상태: 검은 배경 + 흰색 마이크 */
+.mic-btn.idle {
+  background: #000;
+}
+.mic-btn.idle svg {
+  stroke: #fff;
+}
+
+/* 2) Recording 상태: 검은 배경 + 흰색 파형 아이콘 */
+.mic-btn.recording {
+  background: #000;
+}
+.mic-btn.recording svg {
+  stroke: #fff;
+}
+
+/* 3) Disabled 상태 (녹음 종료 후 TTS 재생 중): 회색 배경 + 회색 마이크 */
+.mic-btn.disabled {
+  background: #f0f0f0;
+  cursor: not-allowed;
+}
+.mic-btn.disabled svg {
+  stroke: #888;
+}
+
+.subtitle-popup {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.subtitle-popup-content {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px 22px 18px 22px;
+  min-width: 220px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: stretch;
+}
+.subtitle-popup-title {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.subtitle-toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+.subtitle-toggle-btn {
+  min-width: 48px;
+  padding: 6px 0;
+  border-radius: 18px;
+  border: none;
+  background: #e5e5e5;
+  color: #444;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.subtitle-toggle-btn.on {
+  background: #4b6cff;
+  color: #fff;
+}
+.subtitle-popup-close {
+  margin-top: 8px;
+  padding: 7px 0;
+  border: none;
+  border-radius: 12px;
+  background: #f0f0f0;
+  color: #333;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* 아이폰 하단 바 */
+.home-indicator-bar {
+  width: 90px;
+  height: 5px;
+  background-color: #000;
+  border-radius: 100px;
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+}

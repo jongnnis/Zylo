@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=340, initial-scale=1.0, user-scalable=no" />
+  <title>기록 상세 UI</title>
+  <link rel="stylesheet" href="report.css" />
+</head>
+<body>
+  <div class="mobile-container">
+    <header class="report-header">
+      <div class="report-title">기록</div>
+    </header>
+    <main class="report-content">
+      <section class="report-summary">
+        <div class="report-streak">
+          <div class="streak-call-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <div class="streak-labels">
+            <div class="streak-label">대화 개수</div>
+            <div class="streak-week">0번</div>
+          </div>
+        </div>
+        <div class="report-folder">
+          <div class="folder-icon"></div>
+          <div class="folder-info">
+            <div class="folder-label">보관함</div>
+            <div class="folder-count">표현 9개</div>
+          </div>
+        </div>
+      </section>
+      <section class="report-detail">
+        <div class="detail-title">상세 리포트</div>
+        <div class="detail-list">
+          <!-- 리포트 항목들이 여기에 동적으로 추가됩니다 -->
+          대화 내역 불러오는 중...
+        </div>
+      </section>
+    </main>
+    <div class="home-indicator-bar"></div>
+  </div>
+  <script src="report.js"></script>
+</body>
+</html>

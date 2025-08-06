@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=340, initial-scale=1.0, user-scalable=no" />
+  <title>Zylo 회원가입</title>
+  <link rel="stylesheet" href="signup.css" />
+</head>
+<body>
+  <div class="mobile-container">
+    <main class="signup-content">
+      <div class="signup-title">Welcome to Zylo!</div>
+      <form class="signup-form">
+        <label for="signup-id" class="signup-label">Enter your ID</label>
+        <input type="text" id="signup-id" class="signup-input" placeholder="ID" autocomplete="username" />
+
+        <label for="signup-name" class="signup-label">Enter your name</label>
+        <input type="text" id="signup-name" class="signup-input" placeholder="Name" autocomplete="name" />
+
+        <label for="signup-interests" class="signup-label">Tell us what you're interested in</label>
+        <input type="signup-interests" class="signup-input" placeholder="Interests" autocomplete="interests">
+
+        <button type="submit" class="signup-btn-main">Sign up</button>
+      </form>
+    </main>
+    <div class="home-indicator-bar"></div>
+  </div>
+  <script>
+    document.querySelector('.signup-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const userid = document.getElementById('signup-id').value.trim();
+      const username = document.getElementById('signup-name').value.trim();
+      const interestInput = document.querySelector('input[placeholder="Interests"]');
+      const interest = interestInput ? interestInput.value.trim() : '';
+      if (!userid) {
+        alert('ID를 입력하세요');
+        return;
+      }
+      if (!username) {
+        alert('이름을 입력하세요');
+        return;
+      }
+      if (!interest) {
+        alert('관심사를 입력하세요');
+        return;
+      }
+      try {
+        const response = await fetch('http://localhost:8000/signup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ userid, username, interest })
+        });
+        const data = await response.json();
+        if (response.ok) {
+          localStorage.setItem('user_info', JSON.stringify(data.user));
+          window.location.href = '../main.html';
+        } else {
+          alert(data.message || '회원가입 실패!');
+        }
+      } catch (error) {
+        alert('서버 연결 오류!');
+      }
+    });
+  </script>
+</body>
+</html>
