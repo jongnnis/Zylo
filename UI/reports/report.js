@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   try {
     // 백엔드 API 호출 (예: /api/reports?userid=USER_ID)
-    const response = await fetch(`http://localhost:8000/report/list?userid=${userId}`);
+    const response = await fetch(`https://zylo-useu.onrender.com/report/list?userid=${userId}`);
     if (!response.ok) throw new Error('서버 응답 오류');
 
     const reports = await response.json(); // [{date: '7월 3일'}, ...] 형태라고 가정

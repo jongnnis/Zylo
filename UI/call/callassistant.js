@@ -66,7 +66,7 @@ async function fetchConversationId() {
     // call에서 넘어온 경우: 서버에서 최신 대화 ID를 받아옴
     try {
       const res = await fetch(
-        `http://localhost:8000/studymode/id?userid=${encodeURIComponent(
+        `https://zylo-useu.onrender.com/studymode/id?userid=${encodeURIComponent(
           userInfo.userid
         )}`
       );

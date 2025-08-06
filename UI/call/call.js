@@ -41,9 +41,9 @@ if (userInfoStr) {
   console.warn('user_info가 localStorage에 없습니다.');
 }
 
-// Websoket 연결
+// WebSocket 연결
 const ws = new WebSocket(
-  `ws://localhost:8000/ws/audio?userid=${encodeURIComponent(
+  `wss://zylo-useu.onrender.com/ws/audio?userid=${encodeURIComponent(
     userInfo.userid
   )}&username=${encodeURIComponent(
     userInfo.username

@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   try {
     // 백엔드 API 호출 (예: /api/reports/detail?reportid=REPORT_ID)
     const response = await fetch(
-      `http://localhost:8000/report/detail?userid=${userId}&reportid=${encodeURIComponent(
+      `https://zylo-useu.onrender.com/report/detail?userid=${userId}&reportid=${encodeURIComponent(
         reportId
       )}`
     );
