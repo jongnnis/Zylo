@@ -105,7 +105,7 @@ function splitSentencesWithQuotes(text) {
 
 function connectWebSocket(conversationId) {
   const ws = new WebSocket(
-    `ws://localhost:8000/ws/audio/studymode?userid=${encodeURIComponent(
+    `wss://zylo-useu.onrender.com/ws/audio/studymode?userid=${encodeURIComponent(
       userInfo.userid
     )}&username=${encodeURIComponent(
       userInfo.username
